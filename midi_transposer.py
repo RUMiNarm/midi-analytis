@@ -2,7 +2,6 @@ import argparse
 import os
 from collections import defaultdict
 
-import mido
 from mido import Message, MidiFile, MidiTrack
 
 
@@ -20,7 +19,7 @@ def transpose_midi(input_file, output_folder, semitone_shift):
 
         # 新しいMIDIファイル作成
         new_midi = MidiFile()
-        new_midi.ticks_per_beat = midi.ticks_per_beat  # 元の解像度を保持
+        new_midi.ticks_per_beat = midi.ticks_per_beat
 
         # 各チャンネルごとに専用のトラックを作成
         channel_tracks = defaultdict(MidiTrack)
@@ -71,7 +70,7 @@ def transpose_midi(input_file, output_folder, semitone_shift):
         print(f"❌ Error processing {input_file}: {e}")
 
 
-def process_midi_files(input_path, output_folder, semitone_shift):
+def process_midi_files(input_path: str, output_folder: str, semitone_shift: int):
     """
     入力がファイルかフォルダかを判定
     """

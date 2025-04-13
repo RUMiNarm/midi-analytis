@@ -36,33 +36,6 @@ def print_note_analysis(notes):
         )
 
 
-def plot_note_analysis(notes, output_path):
-    note_on_times = [note["time"] for note in notes if note["type"] == "note_on"]
-    note_off_times = [note["time"] for note in notes if note["type"] == "note_off"]
-    note_on_velocities = [
-        note["velocity"] for note in notes if note["type"] == "note_on"
-    ]
-    note_off_velocities = [
-        note["velocity"] for note in notes if note["type"] == "note_off"
-    ]
-
-    plt.figure(figsize=(10, 8))
-
-    # Note ON times and velocities
-    plt.scatter(note_on_times, note_on_velocities, color="blue", label="Note ON")
-    # Note OFF times and velocities
-    plt.scatter(note_off_times, note_off_velocities, color="red", label="Note OFF")
-
-    plt.title("Note Analysis")
-    plt.xlabel("Time")
-    plt.ylabel("Velocity")
-    plt.legend()
-
-    plt.tight_layout()
-    plt.savefig(output_path)
-    plt.close()
-
-
 def analyze_note_usage(notes):
     note_counts = Counter(note["note"] for note in notes if note["type"] == "note_on")
     return note_counts
@@ -116,8 +89,6 @@ if __name__ == "__main__":
 
     notes = analyze_midi_notes(midi_path, track_index)
     print_note_analysis(notes)
-    output_path = "output/note_analysis.png"  # グラフの出力先を指定
-    plot_note_analysis(notes, output_path)
 
     note_counts = analyze_note_usage(notes)
     output_path = "output/note_usage.png"  # グラフの出力先を指定
