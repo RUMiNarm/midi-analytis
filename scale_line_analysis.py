@@ -172,9 +172,26 @@ def analyze_midi_file(
 
 # 使用例
 if __name__ == "__main__":
+    filename = "output_midi/output_05_22-02.mid"
     analyze_midi_file(
-        "input/okinawa/asadoyaYunta_CMajor.mid",
-        track_index=0,
+        filename,
+        track_index=1,
+        n=2,
+        top_k=10,
+        mode="pitch",
+        ignore_octave=True,  # オクターブを無視する場合はTrue
+    )
+    analyze_midi_file(
+        filename,
+        track_index=1,
+        n=3,
+        top_k=10,
+        mode="pitch",
+        ignore_octave=True,  # オクターブを無視する場合はTrue
+    )
+    analyze_midi_file(
+        filename,
+        track_index=1,
         n=4,
         top_k=10,
         mode="pitch",

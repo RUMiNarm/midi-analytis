@@ -124,4 +124,6 @@ def analyze_midi_file(filename, track_index=1, n=3, top_k=10, output_folder="out
 
 # 使用例
 if __name__ == "__main__":
-    analyze_midi_file("input/okinawa/danjukariyusi_C.mid", track_index=0, n=4, top_k=10)
+    analyze_midi_file("output_midi/output_05_22-02.mid", track_index=1, n=2, top_k=10)
+    analyze_midi_file("output_midi/output_05_22-02.mid", track_index=1, n=3, top_k=10)
+    analyze_midi_file("output_midi/output_05_22-02.mid", track_index=1, n=4, top_k=10)

@@ -84,7 +84,7 @@ def plot_note_lengths(note_lengths, output_path):
 
 
 if __name__ == "__main__":
-    midi_path = "input/d-aki.mid"  # 解析したいMIDIファイルのパスを指定
+    midi_path = "output_midi/output_05_21.mid"  # 解析したいMIDIファイルのパスを指定
     track_index = 1  # 解析したいトラック番号
 
     notes = analyze_midi_notes(midi_path, track_index)
